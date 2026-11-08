@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -16,7 +18,7 @@ android {
         versionName = "1.0"
         // URL HTTPS du backend et jeton : à renseigner dans local.properties (jamais dans git)
         // BACKEND_URL=https://ton-serveur.example   APP_TOKEN=...
-        val props = java.util.Properties().apply {
+        val props = Properties().apply {
             val f = rootProject.file("local.properties")
             if (f.exists()) f.inputStream().use { load(it) }
         }
