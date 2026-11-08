@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Permission déclarée par FinVault / Maillage pour protéger leur ContentProvider
+         (à déclarer dans ces deux applications, voir README). -->
+    <uses-permission android:name="fr.jovida.permission.READ_DECISION_DATA" />
+
+    <!-- Android 11+ : visibilité des applications cibles -->
+    <queries>
+        <package android:name="fr.jovida.finvault" />
+        <package android:name="fr.jovida.maillage" />
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:label="Decision Board"
+        android:usesCleartextTraffic="false"
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
